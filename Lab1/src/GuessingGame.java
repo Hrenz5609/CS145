@@ -1,6 +1,7 @@
 
 /**
  * @author Hunter Renz
+ * CS 145
  * 
  * 
  * This program is meant to play a game with the user
@@ -56,7 +57,6 @@ public class GuessingGame {
 			numGames += 1;
 			currentGuesses += game(kbd, rand);
 			numGuesses += currentGuesses;
-			
 			if(currentGuesses < bestGuess) {
 				bestGuess = currentGuesses;
 			}
