@@ -2,7 +2,7 @@
 /**
  * @author Hunter Renz
  * CS 145
- * 
+ * 1-12-22
  * 
  * This program is meant to play a game with the user
  * where the computer generates a random number between 1 and 100
