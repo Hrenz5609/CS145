@@ -1,4 +1,3 @@
-
 /**
  * @author Hunter Renz
  * CS 145
@@ -13,20 +12,12 @@
  * After all play has concluded the computer will
  * report the overall results for all games played.
  */
-
-
-
 import java.util.*;
 public class GuessingGame {
-
 	//public static int containing the max number that will be passed for the
 	//random number generation.
 	public static final int GUESSING_RANGE = 100;
-	
-	
 	public static void main(String args[]) {
-		
-		
 		/**
 		 * This block of code is where all the variables for the main method
 		 * get declared. First we set bestGuess to the upper bound of guesses
@@ -41,7 +32,6 @@ public class GuessingGame {
 		int currentGuesses = 0;
 		String playAgain;
 		boolean nextGame = true;
-		
 		Random rand = new Random();
 		Scanner kbd = new Scanner(System.in);
 		introduction();
@@ -54,9 +44,8 @@ public class GuessingGame {
 		 * wish to play the game.
 		 */
 		while(nextGame) {
-			currentGuesses = 0;
 			numGames += 1;
-			currentGuesses += game(kbd, rand);
+			currentGuesses = game(kbd, rand);
 			numGuesses += currentGuesses;
 			if(currentGuesses < bestGuess) {
 				bestGuess = currentGuesses;
@@ -68,8 +57,6 @@ public class GuessingGame {
 		}
 		results(numGames, numGuesses, bestGuess);
 	}
-	
-	
 	/**
 	 * 
 	 * @param test: is a one character string representing user input
@@ -83,10 +70,7 @@ public class GuessingGame {
 			isNextGame = true;
 		}
 		return isNextGame;
-		
 	}
-	
-	
 	/**
 	 * This method is called to print the introductory statement at
 	 * the beginning of the game.
@@ -100,8 +84,6 @@ public class GuessingGame {
 		System.out.println("than your guess.");
 		System.out.println();
 	}
-	
-	
 	/**
 	 * This method is the core of the game and is called each time that
 	 * the program is either started or nextGame returns true to main
@@ -109,12 +91,10 @@ public class GuessingGame {
 	 * 					the user made over the course of a single game.
 	 */
 	public static int game(Scanner guess, Random rand) {
+		int currentGuess = 0;
 		int guesses = 0;
 		int num;
-		int currentGuess = 0;
-		num = 42;
 		num = rand.nextInt(GUESSING_RANGE - 1) + 1;
-
 		System.out.println("I'm thinking of a number between 1 and 100...");
 		while(num != currentGuess) {
 			guesses += 1;
@@ -132,13 +112,9 @@ public class GuessingGame {
 			else {
 				System.out.printf("You got it right in %d guesses\n", guesses);
 			}
-			
 		}
 		return guesses;
-		
 	}
-	
-	
 	/**
 	 * 
 	 * @param games: integer variable representing the total number of games played
