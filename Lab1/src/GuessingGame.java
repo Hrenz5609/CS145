@@ -14,9 +14,6 @@
  */
 import java.util.*;
 public class GuessingGame {
-	//public static int containing the max number that will be passed for the
-	//random number generation.
-	public static final int GUESSING_RANGE = 100;
 	public static void main(String args[]) {
 		/**
 		 * This block of code is where all the variables for the main method
@@ -91,10 +88,11 @@ public class GuessingGame {
 	 * 					the user made over the course of a single game.
 	 */
 	public static int game(Scanner guess, Random rand) {
+		int guessRange = 9999;
 		int currentGuess = 0;
 		int guesses = 0;
 		int num;
-		num = rand.nextInt(GUESSING_RANGE - 1) + 1;
+		num = rand.nextInt(guessRange - 1) + 1;
 		System.out.println("I'm thinking of a number between 1 and 100...");
 		while(num != currentGuess) {
 			guesses += 1;
