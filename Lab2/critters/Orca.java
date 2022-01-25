@@ -3,6 +3,7 @@ public class Orca extends Critter{
 	private int COLORCOUNTER;
 	private Color CURRENTCOLOR;
 	private String NAME;
+	private boolean DIDINFECT;
 	public Orca() {
 		COLORCOUNTER = 0;
 	}
@@ -24,10 +25,17 @@ public class Orca extends Critter{
 		
 		
 		if(info.getFront() == Neighbor.OTHER) {
+			DIDINFECT = true;
 			return Action.INFECT;
 		}
-		else {
+		else if(info.getFront() == Neighbor.EMPTY){
 			return Action.HOP;
+		}
+		else if(info.getFront() == Neighbor.WALL) {
+			return Action.LEFT;
+		}
+		else {
+			return Action.RIGHT;
 		}
 		
 	}
