@@ -10,6 +10,7 @@ public class Orca extends Critter{
 		return CURRENTCOLOR;
 	}
 	public String toString() {
+		NAME = "O";
 		return NAME;
 	}
 	public Action getMove(CritterInfo info) {
