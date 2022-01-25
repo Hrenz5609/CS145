@@ -28,14 +28,14 @@ public class Orca extends Critter{
 			DIDINFECT = true;
 			return Action.INFECT;
 		}
-		else if(info.getFront() == Neighbor.EMPTY){
-			return Action.HOP;
+		else if(DIDINFECT){
+			return Action.RIGHT;
 		}
 		else if(info.getFront() == Neighbor.WALL) {
 			return Action.LEFT;
 		}
 		else {
-			return Action.RIGHT;
+			return Action.HOP;
 		}
 		
 	}
