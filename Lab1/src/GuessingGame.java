@@ -88,7 +88,7 @@ public class GuessingGame {
 	 * 					the user made over the course of a single game.
 	 */
 	public static int game(Scanner guess, Random rand) {
-		int guessRange = 9999;
+	    int guessRange = 9999;
 		int currentGuess = 0;
 		int guesses = 0;
 		int num;
