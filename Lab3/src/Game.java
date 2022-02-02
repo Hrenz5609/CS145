@@ -1,18 +1,29 @@
 import java.util.*;
 public class Game {
+	/**
+	 * This is a series of private variables used to keep track
+	 * of all the aspects of the game
+	 * There are two arraylists that handle the hands for the player
+	 * and the dealer
+	 * there is a deck variable used to 
+	 */
 	private static ArrayList<Card> DEALER = new ArrayList<Card>();
 	private static ArrayList<Card> PLAYER = new ArrayList<Card>();
 	private static Deck current = new Deck();
 	private static boolean DEALERBUST= false;
 	private static boolean PLAYERBUST = false;
 	private static boolean WINCON = false;
+	private static int DEALERSCORE = 0;
+	private static int PLAYERSCORE = 0;
 	
-	public static void main(String args[]) throws EmptyStackException
-	{
-		boolean playGame = true;
-		introduction();
-		while(playGame) {
-			playGame();
+	public static void main(String args[]) throws EmptyStackException	{
+		try {
+			boolean playGame = true;
+			introduction();
+			while(playGame) {
+				playGame();
+			}
+		}catch(EmptyStackException e) {
 		}
 	}
 	public static void playGame() {
@@ -95,7 +106,7 @@ public class Game {
 		if(dealerScore() > 21) {
 			DEALERBUST = true;
 		}
-		else if(playerScore() > 21) {
+		if(playerScore() > 21) {
 			PLAYERBUST = true;
 		}
 	}
@@ -116,22 +127,30 @@ public class Game {
 		}
 		else {
 			System.out.println("You have decided not to play again...");
+			System.out.println("The ending score was:");
+			System.out.println("PLAYER: " + PLAYERSCORE);
+			System.out.println("DEALER: " + DEALERSCORE);
 			System.out.println("Good Bye!");
 			return false;
 		}
 	}
 	public static void winCondition() {
-		if(dealerScore() > playerScore() || PLAYERBUST) {
+		if((dealerScore() > playerScore() && !DEALERBUST) || (PLAYERBUST)) {
 			System.out.println("Sorry Player the dealer has won this time!");
+			DEALERSCORE++;
 		}
-		else if(dealerScore() < playerScore() || DEALERBUST) {
+		else if((dealerScore() < playerScore() && !PLAYERBUST) || (!PLAYERBUST && DEALERBUST)) {
 			System.out.println("Good news Player you won!");
+			PLAYERSCORE++;
 		}
 		else if(dealerScore() == playerScore()){
 			System.out.println("It looks like we got a tie today!");
 		}
+		
 	}
 	public static void introduction() {
-		
+		System.out.println("This program is going to simulate a game");
+		System.out.println("of blackjack. For this game we will assume that");
+		System.out.println("the ace will always be high.");
 	}
 }
